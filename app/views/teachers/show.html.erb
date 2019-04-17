@@ -1,0 +1,33 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+  <table>
+    <tr>
+      <td><strong>教师的编号为:</strong></td>
+      <td><%= @teacher.tnumber%></td>
+    </tr>
+
+    <tr>
+      <td><strong>教师的姓名为:</strong></td>
+      <td><%= @teacher.tname%></td>
+    </tr>
+
+    <tr>
+      <td><strong>教师的性别为:</strong></td>
+      <td><%= @teacher.tsex%></td>
+    </tr>
+
+    <tr>
+      <td><strong>教师的职务为:</strong></td>
+      <td><%= @teacher.title%></td>
+    </tr>
+
+    <tr>
+      <td><strong>教师的邮箱为:</strong></td>
+      <td><%= @teacher.temail%></td>
+    </tr>
+    <tr>
+      <td><%=link_to '查看所有的教师信息',school_grade_classschool_teachers_path%></td>
+      <td><%=link_to '添加所对应的学生信息',new_school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher)%></td>
+    </tr>
+  </table>
+</div>

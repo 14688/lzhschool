@@ -1,0 +1,34 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+
+<table>
+  <tr>
+    <td>学校姓名</td>
+    <td></td>
+    <td>学校地址</td>
+    <td></td>
+    <td>学校电话</td>
+    <td></td>
+  </tr>
+  <%@schools.each do |school|%>
+
+    <tr>
+      <td><%=school.sname%></td><td></td>
+      <td><%=school.ssite%></td><td></td>
+      <td><%=school.sphone%></td><td></td>
+
+      <td><%=link_to '修改信息',edit_school_path(school)%></td>
+      <td><%=link_to '删除信息',school_path(school),
+      method: :delete,
+      data:{confirm: '确定要删除这则学校信息吗？'}%></td><td></td><td></td><td></td>
+      <td><%=link_to '查看学校详细信息',school_path(school)%></td>
+      <td><%=link_to '增加所对的年级',new_school_grade_path(school)%></td>
+    </tr>
+  <% end %>
+</table>
+<table>
+  <tr>
+    <%=link_to '添加新学校',new_school_path%>
+  </tr>
+</table>
+</div>

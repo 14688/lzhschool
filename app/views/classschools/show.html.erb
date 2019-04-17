@@ -1,0 +1,28 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+<table><!--显示班级的详细信息（单个）-->
+  <tr>
+    <td><strong>您的班级为:</strong></td>
+    <td><%=@classschool.cname%></td>
+  </tr>
+
+  <tr>
+    <td><strong>所在的年级为:</strong></td>
+    <td><%= @classschool.clocationgrade%></td>
+  </tr>
+
+  <tr>
+    <td><%=link_to '查看所有年级',school_grade_classschools_path%></td>
+  </tr>
+  <tr>
+    <td><%=link_to '增加年级所对于的老师',new_school_grade_classschool_teacher_path(params[:school_id],params[:grade_id],@classschool)%></td>
+  </tr>
+  <tr>
+    <td><%=link_to '查看所有的教师信息',school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],@classschool)%></td>
+  </tr>
+
+  </tr>
+</table>
+
+
+</div>

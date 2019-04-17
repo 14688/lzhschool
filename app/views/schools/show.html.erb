@@ -1,0 +1,32 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+<table>
+  <tr>
+    <td>学校名字为:</td>
+    <td><%=@school.sname%></td>
+  </tr>
+
+  <tr>
+    <td>学校地址为:</td>
+    <td><%=@school.ssite%></td>
+  </tr>
+
+  <tr>
+    <td>学校电话为:</td>
+    <td><%=@school.sphone%></td>
+  </tr>
+</table>
+<div class="">
+  <table>
+    <tr>
+      <td><%=link_to '修改学校信息',edit_school_path(@school)%></td>
+    </tr>
+    <tr>
+      <td><%=link_to '查看全部学校',schools_path%></td>
+    </tr>
+    <tr>
+      <td><%=link_to '增加学生信息',new_school_grade_path(@school)%></td>
+    </tr>
+  </table>
+</div>
+</div>

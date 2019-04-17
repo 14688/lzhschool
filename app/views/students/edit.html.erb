@@ -1,0 +1,38 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+<%=form_for @student,url: school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id]) do |f| %>
+
+    <table>
+
+      <tr>
+        <td><%=f.label :请输入要修改的学生编号%></td>
+        <td><%=f.text_field:unumber%></td>
+      </tr>
+
+      <tr>
+        <td><%=f.label :请输入要修改的学生姓名%></td>
+        <td><%=f.text_field:uname%></td>
+      </tr>
+
+      <tr>
+        <td><%=f.label :请输入要修改的学生性别%></td>
+        <td><%=f.text_field:usex%></td>
+      </tr>
+
+      <tr>
+        <td><%=f.label :请输入要修改的学生年龄%></td>
+        <td><%=f.text_field:uage%></td>
+      </tr>
+
+      <tr>
+        <td><%=f.label :请输入要修改的学生邮箱%></td>
+        <td><%=f.text_field:uemail%></td>
+      </tr>
+
+      <tr>
+        <td><%=f.submit "提交"%></td>
+      </tr>
+
+  </table>
+  <% end %>
+</div>

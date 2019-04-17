@@ -1,0 +1,18 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+<%=form_for @grade,url: school_grade_path(params[:school_id]) do |f| %>
+
+  <table>
+    <tr>
+      <td><%=f.label :请输入要修改的年级：%></td>
+      <td><%=f.text_field:gname%></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><%=f.submit "提交"%></td>
+    </tr>
+
+  </table>
+  <% end %>
+</div>

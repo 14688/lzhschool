@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cname: MyString
+  clocationgrade: MyString
+  grade: one
+
+two:
+  cname: MyString
+  clocationgrade: MyString
+  grade: two

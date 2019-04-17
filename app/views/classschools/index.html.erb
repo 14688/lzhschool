@@ -1,0 +1,23 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+<table>
+  <tr>
+    <td>班级</td><td></td>
+    <td>年级</td>
+  </tr>
+  <%@classschools.each do |classschool|%>
+    <tr>
+      <td><%=classschool.cname%></td><td></td>
+      <td><%=classschool.clocationgrade%></td><td></td>
+      <td><%=link_to '修改此班级信息',edit_school_grade_classschool_path(params[:school_id],params[:grade_id],classschool)%></td><td></td>
+      <td><%=link_to '删除此班级信息',school_grade_classschool_path(params[:school_id],params[:grade_id],classschool),
+      method: :delete,
+      data:{confirm: '你确定要删除此班级信息吗?'} %></td>
+      <td><%=link_to '显示此班级信息',school_grade_classschool_path(params[:school_id],params[:grade_id],classschool)%></td>
+      <td><%=link_to '增加对应的老师',new_school_grade_classschool_teacher_path(params[:school_id],params[:grade_id],classschool)%></td>
+      <td><%=link_to '查看所有的教师信息',school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],classschool)%></td>
+    </tr>
+
+  <% end %>
+</table>
+</div>

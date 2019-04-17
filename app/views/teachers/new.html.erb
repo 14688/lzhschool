@@ -1,0 +1,55 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+<table>
+
+  <tr>
+    <td><strong>您的班级为:</strong></td>
+    <td><%=@classschool.cname%></td>
+  </tr>
+
+  <tr>
+    <td><strong>所在的年级为:</strong></td>
+    <td><%= @classschool.clocationgrade%></td>
+  </tr>
+
+  <tr>
+    <td><%=link_to '查看所有年级',school_grade_classschools_path%></td>
+  </tr>
+</table>
+
+<%=form_for @teacher,url: school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher) do |f| %>
+
+  <table>
+
+    <tr>
+      <td>请输入教师编号：</td>
+      <td><%=f.text_field:tnumber%></td>
+    </tr>
+
+    <tr>
+      <td>请输入教师姓名：</td>
+      <td><%=f.text_field:tname%></td>
+    </tr>
+
+    <tr>
+      <td>请输入教师性别(1:男，0：女)：</td>
+      <td><%=f.text_field:tsex%></td>
+    </tr>
+
+    <tr>
+      <td>请输入教师职务：</td>
+      <td><%=f.text_field:title%></td>
+    </tr>
+
+    <tr>
+      <td>请输入教师邮箱：</td>
+      <td><%=f.text_field:temail%></td>
+    </tr>
+
+    <tr>
+      <td><%=f.submit "提交"%></td>
+    </tr>
+
+  </table>
+<% end %>
+</div>

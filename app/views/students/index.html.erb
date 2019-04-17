@@ -1,0 +1,27 @@
+<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+
+<table>
+  <tr>
+    <td>学生编号</td><td></td>
+    <td>学生姓名</td><td></td>
+    <td>学生性别</td><td></td>
+    <td>学生年龄</td><td></td>
+    <td>学生邮箱</td><td></td>
+  </tr>
+
+  <%@students.each do |student|%>
+    <tr>
+      <td><%=student.unumber%></td><td></td>
+      <td><%=student.uname%></td><td></td>
+      <td><%=student.usex%></td><td></td>
+      <td><%=student.uage%></td><td></td>
+      <td><%=student.uemail%></td><td></td>
+      <td><%=link_to '修改此学生信息',edit_school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></td><td></td>
+      <td><%=link_to '删除此学生信息',school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student),
+      method: :delete,
+      data:{confirm: '你确定要删除此学生信息吗?'} %></td><td></td>
+      <td><%=link_to '显示此学生信息',school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></td><td></td>
+    </tr>
+  <% end %>
+</table>
+</div>
