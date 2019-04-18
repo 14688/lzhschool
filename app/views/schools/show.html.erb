@@ -1,32 +1,36 @@
-<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
 
-<table>
-  <tr>
-    <td>学校名字为:</td>
-    <td><%=@school.sname%></td>
-  </tr>
+<div align="center" style="padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+ <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">-->
+ <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+ <div class="row">
+ <div class="medium-4 columns" style="background-color:#f1f1f1;">
 
-  <tr>
-    <td>学校地址为:</td>
-    <td><%=@school.ssite%></td>
-  </tr>
+     <ul class="side-nav">
+         <li><h6><%=link_to '修改学校信息',edit_school_path(@school)%></h6></li>
+         <li><h6><%=link_to '查看全部学校',schools_path%></h6></li>
+         <li><h6><%=link_to '增加学生信息',new_school_grade_path(@school)%></h6></li>
+     </ul>
 
-  <tr>
-    <td>学校电话为:</td>
-    <td><%=@school.sphone%></td>
-  </tr>
-</table>
-<div class="">
-  <table>
-    <tr>
-      <td><%=link_to '修改学校信息',edit_school_path(@school)%></td>
-    </tr>
-    <tr>
-      <td><%=link_to '查看全部学校',schools_path%></td>
-    </tr>
-    <tr>
-      <td><%=link_to '增加学生信息',new_school_grade_path(@school)%></td>
-    </tr>
-  </table>
+   </div>
+
+   <table class="medium-8 cloums">
+
+      <tr>
+        <td><h5>学校名字为:</h5></td>
+        <td><h6><%=@school.sname%></h6></td>
+      </tr>
+
+      <tr>
+        <td><h5>学校地址为:</h5></td>
+        <td><h6><%=@school.ssite%></h6></td>
+      </tr>
+
+      <tr>
+        <td><h5>学校电话为:</h5></td>
+        <td><h6><%=@school.sphone%></h6></td>
+      </tr>
+
+    </table>
 </div>
+
 </div>

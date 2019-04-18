@@ -3,6 +3,7 @@ class SchoolsController < ApplicationController
   		@schools=School.all
   	end
 
+
   	def show
   		@school=School.find(params[:id])
   	end
@@ -28,9 +29,11 @@ class SchoolsController < ApplicationController
       @school=School.new(params_school)
       respond_to do |format|
         if @school.save
-          #format.html{redirect_to @school,notice: 'User was successfully created.'}
-          format.js
-          format.json{render json:@school,status: :created,location: @school}
+          format.html do
+            redirect_to schools_path
+          end
+          #format.html{redirect_to @school,notice: 'User was successfully created.')
+          format.json{render json:@school.to_json }
         else
           format.html{ render school:"new"}
           format.json{render json: @school.errors,status: :unprocessable_entity}
@@ -42,7 +45,9 @@ class SchoolsController < ApplicationController
       @school=School.find(params[:id])
       respond_to do |format|
         if @school.update(params_school)
-          format.js
+          format.html do
+            redirect_to schools_path
+          end
           format.json{render json:@school,status: :updated,location: @school}
         else
           format.html{render school:"edit"}

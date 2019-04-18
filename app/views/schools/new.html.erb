@@ -1,43 +1,49 @@
-<body style="background-image: ./images/schoolnewbei.jpg">
+<style>
+  body{
+    position:absolute;
+    top:-300px;
+    left: 10px;
+  }
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(document).foundation();
+  })
+</script>
+<body>
 
-
-  <div style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+<div id="newschool" style="padding:400px">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+  <div style="background:#eee;padding:100px;border:solid #eee;box-shadow:0px 0px 3px #eee">
   <h1 align="center">学校添加</h1>
 
-<%= form_for :school,url: schools_path do |f|%>
 
-  <table border="1" align="center">
+    <%= form_for :school,url: schools_path do |f|%>
+      <legend><h4><h4></legend>
 
-    <tr>
-      <td>请输入学校名：</td>
-      <td><%=f.text_area :sname %></td>
-    </tr>
+        <label><h5>请输入学校名:</h5>
+          <%=f.text_area :sname %>
+        </label>
 
-    <tr>
-      <td>请输入学校地址：</td>
-      <td><%=f.text_area :ssite%></td>
-    </tr>
+        <label><h5>请输入学校地址：<h5>
+          <%=f.text_area :ssite%>
+         <label>
 
-    <tr>
-      <td>请输入学校电话：</td>
-      <td><%=f.text_area :sphone%></td>
-    </tr>
+        <label><h5>请输入学校电话：</h5>
+        <%=f.text_area :sphone%>
+        <label>
 
-    <tr>
-      <td></td>
-      <td><%=f.submit "提交信息" %></td>
-    </tr>
+        <label>
+          <%=link_to '查看所有学校信息',schools_path%>
+        </label>
 
-  </table>
-
-<% end %>
-
-<table  align="center">
-  <tr>
-    <td style="color:red"><%=link_to '查看所有学校信息',schools_path%></td>
-  </tr>
-</table>
-
+        <table  align="center">
+          <tr>
+            <td style="color:red"><%=f.submit "提交信息" %></td>
+          </tr>
+        </table>
+      <% end %>
+    <section>
 </div>
-
+</div>
 </body>
