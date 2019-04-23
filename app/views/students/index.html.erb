@@ -1,27 +1,87 @@
-<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/foundation/5.5.3/js/foundation.min.js"></script>
+<script src="https://cdn.staticfile.org/foundation/5.5.3/js/vendor/modernizr.js"></script>
+<!--文本table各行变色-->
+<style>
+  #tableschool tr:nth-child(2n){
+    background-color: #eee
+  }
+</style>
+</head>
+<!--导航栏里的头-->
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar" style="background-color:#777777"><!--导航右-->
+      <section class="left-small"><!--导航头左-->
+        <a class="left-off-canvas-toggle menu-icon"  style="background-color:#777777"><span></span></a>
+      </section>
 
-<table>
-  <tr>
-    <td>学生编号</td><td></td>
-    <td>学生姓名</td><td></td>
-    <td>学生性别</td><td></td>
-    <td>学生年龄</td><td></td>
-    <td>学生邮箱</td><td></td>
-  </tr>
+      <section class="middle tab-bar-section" style="background-color:#777777">
+        <h1 class="title">学校管理系统</h1>
+      </section>
+     </nav>
+<!--表框里的列表-->
+      <aside class="left-off-canvas-menu" style="background-color:#666666">
+         <ul class="off-canvas-list test" style="background-color:#666666">
+          <li><label><h4 style="color:white">操作<h4></label></li>
+            <%@students.each do |student|%><!--循环schools-->
+            <li><h5 style="color:white"><%=link_to '查看全部学校',schools_path(params[:school_id])%></h5></li>
+            <li><h5 style="color:white"><%=link_to '查看全部年级',school_grade_path(params[:school_id],params[:grade_id])%></h5></li>
+            <li><h5 style="color:white"><%=link_to '查看全部班级',school_grade_classschools_path(params[:school_id],params[:grade_id])%></h5></li>
+            <li><h5 style="color:white"><%=link_to '查看全部老师',school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></h5></li>
+            <li><h5 style="color:white"><%=link_to '查看全部学生',school_grade_classschool_teacher_students_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></h5></li>
+            <%break%>
+          <%end%>
+        </ul>
+     </aside>
+<!--主业显示-->
+     <section class="main-section">
+       <div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+      <div>
+        <!--主业显示具体-->
+        <table id="tableschool">
+          <tr>
+            <td><h5>学生编号</td>
+            <td><h5>学生姓名</td>
+            <td><h5>学生性别</td>
+            <td><h5>学生年龄</td>
+            <td><h5>学生邮箱</td>
+          </tr>
+          <%@students.each do |student|%>
 
-  <%@students.each do |student|%>
-    <tr>
-      <td><%=student.unumber%></td><td></td>
-      <td><%=student.uname%></td><td></td>
-      <td><%=student.usex%></td><td></td>
-      <td><%=student.uage%></td><td></td>
-      <td><%=student.uemail%></td><td></td>
-      <td><%=link_to '修改此学生信息',edit_school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></td><td></td>
-      <td><%=link_to '删除此学生信息',school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student),
-      method: :delete,
-      data:{confirm: '你确定要删除此学生信息吗?'} %></td><td></td>
-      <td><%=link_to '显示此学生信息',school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></td><td></td>
-    </tr>
-  <% end %>
-</table>
+            <tr>
+              <td><h6><%=student.unumber%></td>
+              <td><h6><%=student.uname%></td>
+              <td><h6><%=student.usex%></td>
+              <td><h6><%=student.uage%></td>
+              <td><h6><%=student.uemail%></td>
+              <td><h6><%=link_to '修改此学生信息',edit_school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></td><td></td>
+              <td><h6><%=link_to '删除此学生信息',school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student),
+              method: :delete,
+              data:{confirm: '你确定要删除此学生信息吗?'} %></td><td></td>
+              <td><h6><%=link_to '显示此学生信息',school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id],student)%></td><td></td>
+            </tr>
+          <% end %>
+        </table>
+        <!--添加按钮-->
+        <table>
+          <tr>
+            <%=link_to '添加新学校',new_school_path%>
+          </tr>
+        </table>
+      </div>
+   <section>
+     <a class="exit-off-canvas"></a>
+   </div>
+ </div>
 </div>
+<div>
+<script>
+$(document).ready(function() {
+    $(document).foundation();
+})
+</script>

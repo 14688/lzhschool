@@ -1,8 +1,9 @@
 class SchoolsController < ApplicationController
   	def index
-  		@schools=School.all
+  		@schools=School.all.order("created_at DESC").paginate(:page => params[:page],:per_page =>5)
+      # @school=School.find(params[:school_id])
+      # @grade=@school.grade.find(params[:id])
   	end
-
 
   	def show
   		@school=School.find(params[:id])

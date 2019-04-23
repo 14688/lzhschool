@@ -1,41 +1,47 @@
-<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
-<table>
-  <tr>
-    <td>学校名字为:</td>
-    <td><%=@school.sname%></td>
-  </tr>
+<style>
+  body{
+    position:absolute;
+    top:-300px;
+    left: 10px;
+  }
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(document).foundation();
+  })
+</script>
+<body>
 
-  <tr>
-    <td>学校地址为:</td>
-    <td><%=@school.ssite%></td>
-  </tr>
+  <div id="newschool" style="padding:400px">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+      <div style="background:#eee;padding:100px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+      <h1 align="center">学校添加</h1>
 
-  <tr>
-    <td>学校电话为:</td>
-    <td><%=@school.sphone%></td>
-  </tr>
+      <table>
+        <tr>
+          <td><h5>学校名字为:</td>
+          <td><h5><%=@school.sname%></td>
+        </tr>
+      </table>
 
-  <tr>
-    <td><%=link_to '修改学校信息',edit_school_path(@school)%></td>
-  </tr>
-  <tr>
-    <td><%=link_to '查看全部学校',schools_path%></td>
-  </tr>
-</table>
+      <%=form_for @grade, url:school_grades_path(params[:school_id],@grade) do |f| %>
+          <legend><h4><h4></legend>
 
-<%=form_for @grade, url:school_grades_path(params[:school_id],@grade) do |f| %>
-  <table>
+            <label><h5>请输入年级:</h5>
+              <%=f.text_field:gname%>
+            </label>
 
-    <tr>
-      <td>请输入年级:</td>
-      <td><%=f.text_field:gname%></td>
-    </tr>
+            <label>
+              <%=link_to '查看所有年级信息',school_grades_path%>
+            </label>
 
-    <tr>
-      <td></td><td></td>
-      <td><%=f.submit "提交"%></td>
-    </tr>
-
-  </table>
-<% end %>
-</div>
+            <table  align="center">
+              <tr>
+                <td style="color:red"><%=f.submit "提交信息" %></td>
+              </tr>
+            </table>
+          <% end %>
+        <section>
+    </div>
+  </div>
+</body>

@@ -1,20 +1,29 @@
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+<div class="row">
 <div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+  <div class="medium-4 columns" style="background-color:#f1f1f1;">
 
-<table>
+      <ul class="side-nav">
+          <li><h6><%=link_to '查看全部年级',school_grades_path(@school)%></h6></li>
+          <li><h6><%=link_to '增加班级',new_school_grade_classschool_path(params[:school_id],@grade)%></h6></li>
+      </ul>
 
-  <tr>
-    <td><strong>学校名为：</strong></td><td></td>
-    <td><%=@school.sname%></td>
-  </tr>
-    <td><strong>年级为: </strong></td><td></td>
-    <td><%= @grade.gname%></td>
-  <tr>
+    </div>
+  <table class="medium-8 cloums">
 
-    <td><%=link_to '查看全部年级',school_grades_path%></td>
-    <td><%=link_to '增加班级',new_school_grade_classschool_path(params[:school_id],@grade)%></td>
-  </tr>
+     <tr>
+       <td><h5>学校名字为:</h5></td>
+       <td><h6><%=@school.sname%></h6></td>
+     </tr>
 
-</table>
+     <tr>
+       <td><h5>年级为:</h5></td>
+       <td><h6><%= @grade.gname%></h6></td>
+     </tr>
 
+   </table>
+   
 
+   </div>
 </div>

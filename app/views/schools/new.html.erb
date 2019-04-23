@@ -12,38 +12,38 @@
 </script>
 <body>
 
-<div id="newschool" style="padding:400px">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
-  <div style="background:#eee;padding:100px;border:solid #eee;box-shadow:0px 0px 3px #eee">
-  <h1 align="center">学校添加</h1>
+  <div id="newschool" style="padding:400px">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+      <div style="background:#eee;padding:100px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+      <h1 align="center">学校添加</h1>
 
 
-    <%= form_for :school,url: schools_path do |f|%>
-      <legend><h4><h4></legend>
+        <%= form_for :school,url: schools_path do |f|%>
+          <legend><h4><h4></legend>
 
-        <label><h5>请输入学校名:</h5>
-          <%=f.text_area :sname %>
-        </label>
+            <label><h5>请输入学校名:</h5>
+              <%=f.text_area :sname %>
+            </label>
 
-        <label><h5>请输入学校地址：<h5>
-          <%=f.text_area :ssite%>
-         <label>
+            <label><h5>请输入学校地址：<h5>
+              <%=f.text_area :ssite%>
+             <label>
 
-        <label><h5>请输入学校电话：</h5>
-        <%=f.text_area :sphone%>
-        <label>
+            <label><h5>请输入学校电话：</h5>
+            <%=f.text_area :sphone%>
+            <label>
 
-        <label>
-          <%=link_to '查看所有学校信息',schools_path%>
-        </label>
+            <label>
+              <%=link_to '查看所有学校信息',schools_path%>
+            </label>
 
-        <table  align="center">
-          <tr>
-            <td style="color:red"><%=f.submit "提交信息" %></td>
-          </tr>
-        </table>
-      <% end %>
-    <section>
-</div>
-</div>
+            <table  align="center">
+              <tr>
+                <td style="color:red"><%=f.submit "提交信息" %></td>
+              </tr>
+            </table>
+          <% end %>
+        <section>
+    </div>
+  </div>
 </body>

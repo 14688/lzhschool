@@ -28,9 +28,12 @@
       <aside class="left-off-canvas-menu" style="background-color:#666666">
          <ul class="off-canvas-list test" style="background-color:#666666">
           <li><label><h4 style="color:white">操作<h4></label></li>
-          <li><h5 style="color:white"><%=link_to '查看全部学校',schools_path%></h5></li>
-          <li><h5 style="color:white"></h5></li>
-          <li><h5 style="color:white">查看全部学生</h5></li>
+          <%@schools.each do |school|%><!--循环schools-->
+            <li><h5 style="color:white"><%=link_to '查看全部学校',schools_path(school)%></h5></li>
+            <li><h5 style="color:white"><%=link_to '查看全部年级',school_grades_path(school)%></h5></li>
+
+          <%break%>
+          <%end%>
         </ul>
      </aside>
 <!--主业显示-->
@@ -55,7 +58,7 @@
               <td><h6><%=link_to '删除信息',school_path(school),
               method: :delete,
               data:{confirm: '确定要删除这则学校信息吗？'}%></td>
-              <td><h6><%=link_to '查看学校详细信息',school_path(school)%></td>
+              <td><h6><%=link_to '查看详细信息',school_path(school)%></h6></td>
               <td><h6><%=link_to '增加所对的年级',new_school_grade_path(school)%></td>
             </tr>
           <% end %>
@@ -66,6 +69,10 @@
             <%=link_to '添加新学校',new_school_path%>
           </tr>
         </table>
+        <div class="text-center">
+            <%=will_paginate @schools,:previous =>'首页',:previous_label =>'上一页',:next_label =>'下一页'%>
+        </div>
+
       </div>
    <section>
      <a class="exit-off-canvas"></a>

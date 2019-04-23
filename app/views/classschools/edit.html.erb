@@ -1,20 +1,37 @@
-<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+<style>
+body{
+  position:absolute;
+  top:-300px;
+  left: 10px;
+}
+</style>
+<body>
 
-<%=form_for @classschool,url: school_grade_classschool_path(params[:school_id],params[:grade_id]) do |f| %>
+<div id="newschool" style="padding:400px">
+<link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+<div style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+  <h1 align="center">修改学校信息</h1>
 
-  <table>
-    <tr>
-      <td><%=f.label :请输入要修改的班级：%></td>
-      <td><%=f.text_field:cname%></td>
-    </tr>
-    <tr>
-      <td><%=f.label :请输入要修改的年级：%></td>
-      <td><%=f.text_field :clocationgrade%></td>
-    </tr>
-    <tr>
-      <%=f.submit "提交"%>
-    </tr>
+  <%=form_for @classschool,url: school_grade_classschool_path(params[:school_id],params[:grade_id]) do |f| %>
 
-  </table>
+    <p>
+      <h5>请输入要修改的班级：</h5>
+      <h5><%=f.text_field:cname%></h5>
+    </p>
+    <p>
+      <h5>请输入要修改的年级：</h5>
+      <h5><%=f.text_field:clocationgrade%></h5>
+    </p>
+
+    <p>
+    <%= link_to '查看全部班级', school_grade_classschools_path %>
+    </p>
+    <table align="center">
+      <tr>
+        <td><%=f.submit "提交修改后的信息"%></td>
+      </tr>
+    </table>
   <% end %>
-</div>
+
+  <div>
+</body>

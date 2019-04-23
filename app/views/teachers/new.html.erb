@@ -1,55 +1,68 @@
-<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+<style>
+  body{
+    position:absolute;
+    top:-300px;
+    left: 10px;
+  }
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(document).foundation();
+  })
+</script>
+<body>
 
-<table>
+  <div id="newschool" style="padding:400px">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+      <div style="background:#eee;padding:100px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+      <h1 align="center">学生添加</h1>
 
-  <tr>
-    <td><strong>您的班级为:</strong></td>
-    <td><%=@classschool.cname%></td>
-  </tr>
+      <table>
 
-  <tr>
-    <td><strong>所在的年级为:</strong></td>
-    <td><%= @classschool.clocationgrade%></td>
-  </tr>
+        <tr>
+          <td><h5>您的班级为:</h5></td>
+          <td><h5><%=@classschool.cname%></td>
+        </tr>
 
-  <tr>
-    <td><%=link_to '查看所有年级',school_grade_classschools_path%></td>
-  </tr>
-</table>
+        <tr>
+          <td><h5>所在的年级为:</h5></td>
+          <td><h5><%= @classschool.clocationgrade%></td>
+        </tr>
+      </table>
+      <%=form_for @teacher,url: school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher) do |f| %>
+          <legend><h4><h4></legend>
 
-<%=form_for @teacher,url: school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher) do |f| %>
+            <label><h5>请输入教师编号：:</h5>
+              <%=f.text_field :tnumber %>
+            </label>
 
-  <table>
+            <label><h5>请输入教师姓名:<h5>
+              <%=f.text_field :tname%>
+             <label>
 
-    <tr>
-      <td>请输入教师编号：</td>
-      <td><%=f.text_field:tnumber%></td>
-    </tr>
+            <label><h5>您的性别是（1：男，0：女）：</h5>
+            <%=f.text_field :tsex%>
+            <label>
 
-    <tr>
-      <td>请输入教师姓名：</td>
-      <td><%=f.text_field:tname%></td>
-    </tr>
+            <label><h5>请输入教师职务：</h5>
+            <%=f.text_field :title%>
+            <label>
 
-    <tr>
-      <td>请输入教师性别(1:男，0：女)：</td>
-      <td><%=f.text_field:tsex%></td>
-    </tr>
+            <label><h5>请输入教师邮箱：</h5>
+            <%=f.text_field :temail%>
+            <label>
 
-    <tr>
-      <td>请输入教师职务：</td>
-      <td><%=f.text_field:title%></td>
-    </tr>
+            <label>
+              <%=link_to '查看所有教师信息',school_grade_classschool_teachers_path%>
+            </label>
 
-    <tr>
-      <td>请输入教师邮箱：</td>
-      <td><%=f.text_field:temail%></td>
-    </tr>
-
-    <tr>
-      <td><%=f.submit "提交"%></td>
-    </tr>
-
-  </table>
-<% end %>
-</div>
+            <table  align="center">
+              <tr>
+                <td><%=f.submit "提交信息" %></td>
+              </tr>
+            </table>
+          <% end %>
+        <section>
+    </div>
+  </div>
+</body>

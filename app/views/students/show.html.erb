@@ -1,41 +1,46 @@
-<div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+<div  style="padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+ <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+    <div class="row">
+      <div class="medium-4 columns" style="background-color:#f1f1f1;">
 
-<table>
-  <tr>
-    <td><strong>学生编号:</strong></td>
-    <td><%= @student.unumber%></td>
-  </tr>
+          </div>
+          <table class="medium-8 cloums">
+            <tr>
+              <td><h5>学生编号:</h5></td>
+              <td><%= @student.unumber%></td>
+            </tr>
 
-  <tr>
-    <td><strong>学生姓名为:</strong></td>
-    <td><%= @student.uname%></td>
-  </tr>
+            <tr>
+              <td><h5>学生姓名为:</h5></td>
+              <td><%= @student.uname%></td>
+            </tr>
 
-  <tr>
-    <td><strong>学生性别为:</strong></td>
-    <td>
-      <%if @student.usex == 0%>
-      女
-      <%else%>
-      男
-      <%end%>
-    </td>
-  </tr>
+            <tr>
+              <td><h5>学生性别为:</h5></td>
+              <td>
+                <%if @student.usex == 0%>
+                女
+                <%else%>
+                男
+                <%end%>
+              </td>
+            </tr>
 
-  <tr>
-    <td><strong>学生年龄为:</strong></td>
-    <td><%= @student.uage%></td>
-  </tr>
+            <tr>
+              <td><h5>学生年龄为:</h5></td>
+              <td><%= @student.uage%></td>
+            </tr>
 
-  <tr>
-    <td><strong>学生邮箱为:</strong></td>
-    <td><%= @student.uemail%></td>
-  </tr>
+            <tr>
+              <td><h5>学生邮箱为:</h5></td>
+              <td><%= @student.uemail%></td>
+            </tr>
 
-  <tr>
-    <td><%=link_to '查看全部学生信息',school_grade_classschool_teacher_students_path%></td>
+            <tr>
+              <td><%=link_to '查看全部学生信息',school_grade_classschool_teacher_students_path%></td>
+            </tr>
 
-  </tr>
-
-</table>
+          </table>
+      </div>
+  </div>
 </div>

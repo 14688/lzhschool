@@ -1,0 +1,2 @@
+module SchoolsessionsHelper
+end
