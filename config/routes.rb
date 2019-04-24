@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :schoollogins
+  get 'welcome/index'
+  devise_for :users
+  root 'welcome#index'
   resources :schools do
+
+    post 'upvote'
     resources :grades do
       resources :classschools do
-	resources :teacheroperoations do
+	       resources :teacheroperoations do
            resources :students
 	end
         resources :teachers do

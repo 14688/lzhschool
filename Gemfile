@@ -3,9 +3,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.1'
 
+gem 'searchkick'
+
+gem 'sunspot_rails'
+
+gem 'seo_helper'
+
+gem 'will_paginate-bootstrap'
+
 gem 'will_paginate'
 
 gem 'devise'
+
+gem 'carrierwave','~> 1.2','~>1.2.2'
+
+gem 'carrierwave-qiniu','~>1.1','>=1.1.5'
+
+
+gem 'font-awesome-rails'
+
+gem 'action-store'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record

@@ -1,0 +1,18 @@
+<div style="background:#eee;padding:100px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+  <div align="center">
+
+    <% if user_signed_in? %>
+        <h2><%=current_user.email%>  欢迎你</h2>
+
+      <%= link_to('退出登陆', destroy_user_session_path, :method => :delete) %>
+
+    <% else %>
+
+      <h1>你好</h1>
+      <%= link_to('注册', new_registration_path(:user)) %>
+      <%= link_to('登录', new_session_path(:user)) %>
+
+    <% end %>
+  </div>
+
+</div>

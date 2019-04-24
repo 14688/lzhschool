@@ -1,10 +1,21 @@
 class SchoolsController < ApplicationController
   	def index
   		@schools=School.all.order("created_at DESC").paginate(:page => params[:page],:per_page =>5)
+      # @schools=School.reindex
+      # @schools=School.search "grade"
+      # schools.each do |sch|
+      #   puts sch.sname
+      # end
       # @school=School.find(params[:school_id])
       # @grade=@school.grade.find(params[:id])
   	end
 
+    def upvote
+      @school=School.find(params[:school_id])
+      @school.votes.create
+      redirect_to(school_path(@school))
+    end
+    
   	def show
   		@school=School.find(params[:id])
   	end
@@ -70,11 +81,14 @@ class SchoolsController < ApplicationController
   		@school=School.find(params[:id])
   		@school.destroy
   		redirect_to schools_path
-  	end
+    end
 
   	private
   	def params_school
-  		params.require(:school).permit(:sname,:ssite,:sphone)
+      if params[:school].present?
+               params.require(:school).permit(:sname,:ssite,:sphone)
+      end
+      
   	end
 
 end

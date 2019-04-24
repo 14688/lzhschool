@@ -1,4 +1,6 @@
 class School < ApplicationRecord
+  
+  has_many :votes
   has_many :grade
   def login=(login)
     @login=login
@@ -6,4 +8,6 @@ class School < ApplicationRecord
   def login
     @login || self.sname || self.sphone
   end
+  searchkick
+
 end
