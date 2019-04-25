@@ -8,6 +8,4 @@ class School < ApplicationRecord
   def login
     @login || self.sname || self.sphone
   end
-  searchkick
-
 end
