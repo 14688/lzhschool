@@ -11,6 +11,9 @@
         border-radius: 30px
 
   }
+  #userlogin{
+    opacity: 0.8;
+  }
 </style>
 <!-- js实现 -->
 <script type="text/javascript">
@@ -19,6 +22,7 @@
   })
 
 </script>
+
 
 <body style="background-image: url(http://i1.17173cdn.com/9ih5jd/YWxqaGBf/forum/images/2014/06/28/163532v8ngdtz2xfbe8r2b.jpg);
  background-size: cover;>
@@ -32,11 +36,12 @@
 <!-- 实现div区域背景颜色 -->
       <div id="userlogin" style="background:#eee;padding:100px;border:solid #eee;box-shadow:0px 0px 3px #eee">
 
-      <h1 align="center">用户登陆</h1>
+      <h1 align="center">用户登录</h1>
 
 
-      <%= form_for(resource, as: resource_name, url: schools_path) do |f| %>
-          <legend><h4><h4></legend>
+       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ 
+           <legend><h4><h4></legend>
 
             <label><h5>    <%= f.label :邮箱 %></h5>
               <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
@@ -57,12 +62,11 @@
 
             <table  align="center">
               <div>
-                <%= f.submit "登陆" %>
+                <%= f.submit "登录" %>
               </div>
             </table>
           <% end %>
           <%= render "devise/shared/links" %>
-
         <section>
     </div>
   </div>

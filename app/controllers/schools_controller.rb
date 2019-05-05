@@ -8,6 +8,7 @@ class SchoolsController < ApplicationController
       # end
       # @school=School.find(params[:school_id])
       # @grade=@school.grade.find(params[:id])
+      
   	end
 
     def upvote

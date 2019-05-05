@@ -5,6 +5,8 @@ ruby '2.3.1'
 
 gem 'searchkick'
 
+gem 'letter_avatar'
+
 gem 'sunspot_rails'
 
 gem 'seo_helper'

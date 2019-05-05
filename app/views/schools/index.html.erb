@@ -24,7 +24,8 @@
         <a class="left-off-canvas-toggle menu-icon"  style="background-color:#777777"><span></span></a>
       </section>
       <section class="middle tab-bar-section" style="background-color:#777777">
-        <h1 class="title">学校管理系统</h1>
+        <h1 class="title">学校管理系统</h1>              
+
       </section>
      </nav>
 <!--表框里的列表-->
@@ -33,7 +34,6 @@
           <li><label><h4 style="color:white">操作<h4></label></li>
           <%@schools.each do |school|%><!--循环schools-->
             <li><h5 style="color:white"><%=link_to '查看全部学校',schools_path(school)%></h5></li>
-            <li><h5 style="color:white"><%=link_to '查看全部年级',school_grades_path(school)%></h5></li>
             <li><%= link_to('退出登陆', destroy_user_session_path, :method =>:delete) %></li>
           <%break%>
           <%end%>
@@ -42,15 +42,18 @@
 
 <!--主业显示-->
      <section class="main-section">
-       <div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+       <div align="center" style="background:#eee;border:solid #eee;box-shadow:0px 0px 3px #eee">
       <div>
         <!--主业显示具体-->
         <table id="tableschool">
+
+                        <h4><%=current_user.email%>  欢迎你</h4> 
+
           <tr>
             <td><h5>学校姓名</td>
             <td><h5>学校地址</td>
             <td><h5>学校电话</td>
-          </tr>
+         </tr>
           <%@schools.each do |school|%>
 
             <tr>
@@ -64,6 +67,7 @@
               data:{confirm: '确定要删除这则学校信息吗？'}%></td>
               <td><h6><%=link_to '查看详细信息',school_path(school)%></h6></td>
               <td><h6><%=link_to '增加所对的年级',new_school_grade_path(school)%></td>
+              <td><h6 style="color:white"><%=link_to '查看对应年级',school_grades_path(school)%></h6></td>
             </tr>
           <% end %>
         </table>
@@ -85,7 +89,6 @@
  </div>
 </div>
 <div>
-  <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3943723512,1898909937&fm=27&gp=0.jpg"  class="img-circle">
 </div>
 
 <div>
