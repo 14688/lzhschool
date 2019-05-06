@@ -6,6 +6,7 @@ ruby '2.3.1'
 gem 'searchkick'
 
 gem 'letter_avatar'
+gem 'chinese_pinyin'
 
 gem 'sunspot_rails'
 

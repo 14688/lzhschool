@@ -3,6 +3,7 @@ class SchoolsController < ApplicationController
   before_action :set_school,only:[:show,:edit,:update,:destroy]
   
   	def index
+      # @user=User.find(params[current_user.id])
   		@schools=School.all.order("created_at DESC").paginate(:page => params[:page],:per_page =>5)
       
   	end

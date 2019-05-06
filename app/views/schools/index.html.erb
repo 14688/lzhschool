@@ -47,8 +47,9 @@
       <div>
         <!--主业显示具体-->
         <table id="tableschool">
-
-                        <h4><%=current_user.email%>  欢迎你</h4> 
+                   			<%=letter_avatar_for('ggg',200)%><br>
+                  			<%=letter_avatar_for(current_user.username_for_avatar, 200)%>
+                        <h4><%=current_user.username%>  欢迎你</h4> 
 
           <tr>
             <td><h5>学校姓名</td>

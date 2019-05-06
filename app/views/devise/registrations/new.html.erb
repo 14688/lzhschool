@@ -18,11 +18,12 @@
       <h1 align="center">用户注册</h1>
 
 
-      <%= form_for(resource, as: resource_name, url: schools_path) do |f| %>
+     
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <legend><h4><h4></legend>
 
             <label><h5><%= f.label :邮箱： %></h5>
-              <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+              <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
             </label>
 
             <label><h5> <%= f.label :密码 %><h5>
