@@ -1,4 +1,4 @@
 class Teacher < ApplicationRecord
   belongs_to :classschool
-  has_many :student
+  has_many :students
 end

@@ -21,7 +21,7 @@ class GradesController < ApplicationController
 
     def index
       @schools = School.find(params[:school_id])
-      @grades=@schools.grade.all
+      @grades=@schools.grades.all
     end
 
     def update

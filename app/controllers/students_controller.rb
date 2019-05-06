@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
     end
 
     def create
-      @student=@teacher.student.create(student_params)
+      @student=@teacher.students.create(student_params)
       if @student.save
           redirect_to school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher,@student)
         else
@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
     end
 
     def index
-      @students=@teacher.student.all
+      @students=@teacher.students.all
     end
 
     def destroy

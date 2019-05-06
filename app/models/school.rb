@@ -1,7 +1,7 @@
 class School < ApplicationRecord
   
   has_many :votes
-  has_many :grade
+  has_many :grades
 
   def login=(login)
     @login=login

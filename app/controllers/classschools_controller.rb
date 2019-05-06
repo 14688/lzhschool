@@ -9,7 +9,7 @@ class ClassschoolsController < ApplicationController
     end
 
     def create
-      @classschool=@grade.classschool.create(classschool_params)
+      @classschool=@grade.classschools.create(classschool_params)
       redirect_to school_grade_classschool_path(params[:school_id],@grade,@classschool)
     end
     
@@ -21,7 +21,7 @@ class ClassschoolsController < ApplicationController
     end
 
     def index
-      @classschools= @grade.classschool.all
+      @classschools= @grade.classschools.all
     end
 
     def update
