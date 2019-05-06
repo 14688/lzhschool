@@ -1,10 +1,15 @@
 class TeachersController < ApplicationController
+
+  #调用index,new,create,show,edit,update,destroy方法前，都要先调用set_classschool方法
+  before_action :set_classschool,only:[:index,:new,:create,:show,:edit,:update,:destroy]
+  #调用show,edit,update,destroy方法前，都要先调用set_teacher方法
+  before_action :set_teacher,only:[:show,:edit,:update,:destroy]
+
     def new
-      @classschool=Classschool.find(params[:classschool_id])
       @teacher= Teacher.new
     end
+
     def create
-      @classschool=Classschool.find(params[:classschool_id])
       @teacher= @classschool.teachers.create(teacher_params)
       if @teacher.save
         redirect_to school_grade_classschool_teacher_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher)
@@ -14,16 +19,13 @@ class TeachersController < ApplicationController
     end
 
     def index
-      @classschool=Classschool.find(params[:classschool_id])
       @teachers=@classschool.teachers.all
     end
 
     def edit
-      @teacher=Teacher.find(params[:id])
     end
 
     def destroy
-      @teacher=Teacher.find(params[:id])
       @teacher.destroy
       redirect_to school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher)
     end
@@ -31,20 +33,29 @@ class TeachersController < ApplicationController
     def show
       @school = School.find(params[:school_id])
       @classschool=Classschool.new
-      @teacher=Teacher.find(params[:id])
     end
+    
     def update
-      @teacher=Teacher.find(params[:id])
       if @teacher.update(teacher_params)
         redirect_to school_grade_classschool_teachers_path(params[:school_id],params[:grade_id],params[:classschool_id],@teacher)
       else
         render 'edit'
       end
     end
+
     private
+
     def teacher_params
       params.require(:teacher).permit(:tnumber,:tname,:tsex,:title,:temail)
     end
 
+    def set_classschool
+      @classschool=Classschool.find(params[:classschool_id])
+    end
+
+
+     def set_teacher
+      @teacher=Teacher.find(params[:id])
+    end
 
 end

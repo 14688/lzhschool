@@ -6,16 +6,20 @@
  <div class="medium-4 columns" style="background-color:#f1f1f1;">
  </div>
  <table class="medium-8 cloums">
+  
   <tr>
     <td><h5>教师：</td>
     <td><%=@teacher.tname%></td>
   </tr>
+
   <tr>
     <td><h5>所受班级：</td>
     <td><%=@classschool.cname%></td>
   </tr>
+
   <tr>
     <td><%=link_to '修改班级',edit_school_grade_classschool_path(params[:school_id],params[:grade_id],@classschool)%></td>
   </tr>
+
 </table>
 </div>

@@ -4,26 +4,28 @@
 <div align="center" style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
   <div class="medium-4 columns" style="background-color:#f1f1f1;">
 
-      <ul class="side-nav">
-          <li><h6><%=link_to '查看全部班级',school_grade_classschools_path%></h6></li>
-          <li><h6><%=link_to '增加年级所对于的老师',new_school_grade_classschool_teacher_path(params[:school_id],params[:grade_id],@classschool)%></td>
-          <li><h6><%=link_to '增加班级',new_school_grade_classschool_path(params[:school_id],@grade)%></h6></li>
-      </ul>
+    <ul class="side-nav">
+        <li><h6><%=link_to '查看全部班级',school_grade_classschools_path%></h6></li>
+        <li><h6><%=link_to '增加年级所对于的老师',new_school_grade_classschool_teacher_path(params[:school_id],params[:grade_id],@classschool)%></td>
+        <li><h6><%=link_to '增加班级',new_school_grade_classschool_path(params[:school_id],@grade)%></h6></li>
+    </ul>
 
-    </div>
-<table class="medium-8 cloums"> <!--显示班级的详细信息（单个）-->
-  <tr>
-    <td><strong>您的班级为:</strong></td>
-    <td><%=@classschool.cname%></td>
-  </tr>
+  </div>
 
-  <tr>
-    <td><strong>所在的年级为:</strong></td>
-    <td><%= @classschool.clocationgrade%></td>
-  </tr>
+  <!--显示班级的详细信息（单个）-->
+  <table class="medium-8 cloums"> 
 
-  </tr>
-</table>
+    <tr>
+      <td><strong>您的班级为:</strong></td>
+      <td><%=@classschool.cname%></td>
+    </tr>
+
+    <tr>
+      <td><strong>所在的年级为:</strong></td>
+      <td><%= @classschool.clocationgrade%></td>
+    </tr>
+
+  </table>
 
 
 </div>

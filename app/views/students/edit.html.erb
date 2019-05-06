@@ -7,43 +7,44 @@ body{
 </style>
 <body>
 
-<div id="newschool" style="padding:400px">
-<link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
-<div style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
+  <div id="newschool" style="padding:400px">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/foundation/5.5.3/css/foundation.min.css">
+  <div style="background:#eee;padding:40px;border:solid #eee;box-shadow:0px 0px 3px #eee">
 
-<%=form_for @student,url: school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id]) do |f| %>
-
-
-      <p>
-        <h5>请输入要修改的教师邮箱:</h5>
-         <%=f.text_field:unumber%>
-      </p>
-
-      <p>
-        <h5>请输入要修改的学生姓名</h5>
-        <%=f.text_field:uname%>
-      </p>
-
-      <p>
-        <h5>请输入要修改的学生性别:</h5>
-        <%=f.text_field:usex%>
-      </p>
-
-      <p>
-        <h5>请输入要修改的学生年龄</h5>
-        <%=f.text_field:uage%>
-      </p>
-
-      <p>
-        <h5><%=f.label :请输入要修改的学生邮箱%></h5>
-        <%=f.text_field:uemail%>
-      </p>
-      <p><%= link_to '查看学生全部信息', school_grade_classschool_teacher_students_path %></p>
-      <table  align="center">
-        <tr><td><%=f.submit "提交"%></td></tr>
-      </table>
+  <%=form_for @student,url: school_grade_classschool_teacher_student_path(params[:school_id],params[:grade_id],params[:classschool_id],params[:teacher_id]) do |f| %>
 
 
-  <% end %>
-</div>
+        <p>
+          <h5>请输入要修改的教师邮箱:</h5>
+           <%=f.text_field:unumber%>
+        </p>
+
+        <p>
+          <h5>请输入要修改的学生姓名</h5>
+          <%=f.text_field:uname%>
+        </p>
+
+        <p>
+          <h5>请输入要修改的学生性别:</h5>
+          <%=f.text_field:usex%>
+        </p>
+
+        <p>
+          <h5>请输入要修改的学生年龄</h5>
+          <%=f.text_field:uage%>
+        </p>
+
+        <p>
+          <h5><%=f.label :请输入要修改的学生邮箱%></h5>
+          <%=f.text_field:uemail%>
+        </p>
+        <p><%= link_to '查看学生全部信息', school_grade_classschool_teacher_students_path %></p>
+        <!-- 表单提交-->
+        <table  align="center">
+          <tr><td><%=f.submit "提交"%></td></tr>
+        </table>
+
+
+    <% end %>
+  </div>
 </body>

@@ -1,22 +1,22 @@
 class GradesController < ApplicationController
+  #调用new,create,show,edit,update,destroy方法前，都要先调用set_school方法
+  before_action :set_school,only:[:new,:create,:show,:edit,:update,:destroy]
+  #调用show,edit,update,destroy方法前，都要先调用set_grade方法
+  before_action :set_grade,only:[:show,:edit,:update,:destroy]
+
     def new
-      @school=School.find(params[:school_id])
       @grade=Grade.new
     end
 
     def create
-      @school=School.find(params[:school_id])
       @grade=@school.grade.create(grade_params)
       redirect_to school_grade_path(@school, @grade)
     end
 
     def edit
-        @grade=Grade.find(params[:id])
     end
 
     def show
-      @school = School.find(params[:school_id])
-      @grade=Grade.find(params[:id])
     end
 
     def index
@@ -25,7 +25,6 @@ class GradesController < ApplicationController
     end
 
     def update
-      @grade=Grade.find(params[:id])
       if @grade.update(grade_params)
         redirect_to  school_grades_path(params[:school_id], @grade)
       else
@@ -34,15 +33,22 @@ class GradesController < ApplicationController
     end
 
     def destroy
-      @grade=Grade.find(@school,params[:id])
       @grade.destroy
       redirect_to schools_path
     end
 
     private
+    
     def grade_params
       params.require(:grade).permit(:gname)
     end
+    # 增加共有方法
+    def set_grade
+      @grade=Grade.find(params[:id])
+    end
 
+    def set_school
+      @school = School.find(params[:school_id])
+    end
 
 end

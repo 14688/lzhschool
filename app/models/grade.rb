@@ -1,4 +1,6 @@
 class Grade < ApplicationRecord
-  belongs_to :school#上面是school
-  has_many :classschool#下面classschool
+  #他的父类是school
+  belongs_to :school
+  #他的字类是classschool
+  has_many :classschool
 end

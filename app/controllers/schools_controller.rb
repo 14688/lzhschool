@@ -1,13 +1,9 @@
 class SchoolsController < ApplicationController
+  #调用show,edit,update,destroy方法前，都要先调用set_school方法
+  before_action :set_school,only:[:show,:edit,:update,:destroy]
+  
   	def index
   		@schools=School.all.order("created_at DESC").paginate(:page => params[:page],:per_page =>5)
-      # @schools=School.reindex
-      # @schools=School.search "grade"
-      # schools.each do |sch|
-      #   puts sch.sname
-      # end
-      # @school=School.find(params[:school_id])
-      # @grade=@school.grade.find(params[:id])
       
   	end
 
@@ -18,7 +14,6 @@ class SchoolsController < ApplicationController
     end
     
   	def show
-  		@school=School.find(params[:id])
   	end
 
   	def new
@@ -27,9 +22,9 @@ class SchoolsController < ApplicationController
 
 
   	def edit
-  		@school=School.find(params[:id])
-  	end
 
+  	end
+    #普通反式
   	# def create
   	# 	@school=School.new(params_school)
   	# 	if @school.save
@@ -38,6 +33,8 @@ class SchoolsController < ApplicationController
   	# 		render 'new'
   	# 	end
   	# end
+
+    #使用ajax
     def create
       @school=School.new(params_school)
       respond_to do |format|
@@ -45,7 +42,6 @@ class SchoolsController < ApplicationController
           format.html do
             redirect_to schools_path
           end
-          #format.html{redirect_to @school,notice: 'User was successfully created.')
           format.json{render json:@school.to_json }
         else
           format.html{ render school:"new"}
@@ -54,8 +50,8 @@ class SchoolsController < ApplicationController
       end
     end
 
+    #使用ajax
     def update
-      @school=School.find(params[:id])
       respond_to do |format|
         if @school.update(params_school)
           format.html do
@@ -69,6 +65,7 @@ class SchoolsController < ApplicationController
       end
     end
 
+    #普通方式
   	# def update
   	# 	@school=School.find(params[:id])
   	# 	if @school.update(params_school)
@@ -79,17 +76,20 @@ class SchoolsController < ApplicationController
   	# end
 
   	def destroy
-  		@school=School.find(params[:id])
   		@school.destroy
   		redirect_to schools_path
     end
 
   	private
+
   	def params_school
       if params[:school].present?
                params.require(:school).permit(:sname,:ssite,:sphone)
-      end
-      
+      end  
   	end
+
+    def set_school
+      @school=School.find(params[:id])
+    end
 
 end

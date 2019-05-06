@@ -5,8 +5,8 @@
     <% if user_signed_in? %>
         <h2><%=current_user.email%>  欢迎你</h2>
         <emta http-equiv="refresh" content="0.1;url=schools_path"></emta>
-      <%= link_to('退出登录', destroy_user_session_path, :method => :delete) %>
-      <%=link_to '查询学校',schools_path%>
+        <%= link_to('退出登录', destroy_user_session_path, :method => :delete) %>
+        <%=link_to '查询学校',schools_path%>
     <% else %>
 
       <h1>你好</h1>
